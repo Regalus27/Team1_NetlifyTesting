@@ -1,7 +1,11 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 export default class ProductList {
-    // Requires product category, datasource, and HTML element to render in
+    /**
+     * @param {string} category - Which category of product
+     * @param {ProductData} dataSource - Handles fetching data
+     * @param {Element} listElement - Target html element to render products in
+     */
     constructor(category, dataSource, listElement) {
         this.category = category;
         this.dataSource = dataSource;
@@ -10,7 +14,7 @@ export default class ProductList {
 
     // Populate list of products
     async init() {
-        const products = await this.dataSource.getData();
+        const products = await this.dataSource.getData(this.category);
         const filteredProducts = this.filterByDenylist(products);
 
         this.renderList(filteredProducts);

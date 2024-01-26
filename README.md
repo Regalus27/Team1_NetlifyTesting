@@ -19,5 +19,11 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 - `npm run lint` to run ESLint against your code to find errors.
 - `npm run format` to run Prettier to automatically format your code.
 
+## Previewing Netlify
 
-https://659ed4e539a17f06d53be883--glittery-taiyaki-c65c65.netlify.app/
+1. Run `npm run build` to build the files the site will see.
+2. Run `npm run preview` to start the preview.
+3. Open the localhost site in your browser to preview the changes.
+
+
+https://meek-valkyrie-be0f27.netlify.app/
