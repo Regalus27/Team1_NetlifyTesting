@@ -208,18 +208,6 @@ button {
   display: none;
 }
 
-/* Main Page Product Grid */
-.category_wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  grid-template-rows: 1fr;
-}
-.category_card a {
-  text-decoration: none;
-  color: var(--dark-grey);
-}
-
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;

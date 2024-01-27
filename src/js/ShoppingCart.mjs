@@ -70,7 +70,7 @@ function cartItemTemplate(product) {
     return `<li class="cart-card divider">
     <a href="#" class="cart-card__image">
       <img
-        src="${product.Image}"
+        src="${product.Images.PrimaryMedium}"
         alt="${product.Name}"
       />
     </a>
@@ -89,7 +89,7 @@ function cartItemTemplate(product) {
  */
 function cartTotalTemplate(totalPrice) {
     return `<li class="cart-card cart-price divider" id="cart-total">
-        <p class="cart-card__total_price">Total: ${totalPrice}<p>
+        <p class="cart-card__total_price">Total: $${totalPrice}<p>
     </li>`;
 }
 
