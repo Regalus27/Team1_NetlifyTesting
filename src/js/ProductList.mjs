@@ -1,5 +1,10 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
+/**
+ * @param {string} - Which category of product
+ * @param {ProductData} dataSource - Handles fetching data
+ * @param {Element} listElement - Target html element to render products in
+ */
 export default class ProductList {
     // Requires product category, datasource, and HTML element to render in
     constructor(category, dataSource, listElement) {
