@@ -1,12 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-
-
-function giveDiscount(discount){
-  
-    product.FinalPrice - SuggestedRetailPrice 
-
-}
-
+import { getLocalStorage, getShoppingCartKey, setLocalStorage } from "./utils.mjs";
 
 // Emiliano's Solution
 function productDetailsTemplate(product) {
@@ -48,16 +40,25 @@ export default class ProductDetails {
     }
 
     // Armando's Week 1 Solution
+    // Modified by Cooper
     addToCart() {
-        let key = "so-cart";
-        var cart_list = getLocalStorage(key);
+        let key = getShoppingCartKey();
+        let cart_list = getLocalStorage(key);
         let list = [];
+        let matchingProduct = false;
         if (cart_list != null) {
             cart_list.forEach(item => {
+              if (item.Id == this.product.Id) {
+                item.Quantity = Number(item.Quantity) + 1; // += 1 may work, but I'm so done.
+                matchingProduct = true;
+              }
               list.push(item);
             });
         }
-        list.push(this.product);
+        if (!matchingProduct) {
+            this.product.Quantity = 1;
+            list.push(this.product);
+        }
         setLocalStorage(key, list);
     }
 

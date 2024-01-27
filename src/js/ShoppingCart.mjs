@@ -36,7 +36,7 @@ export default class ShoppingCart {
         let cart = this.getCart();
         if (cart != null) {
             cart.forEach(element => {
-                sum += element.FinalPrice;
+                sum += Number(element.FinalPrice) * Number(element.Quantity);
             });
         }
         return sum;
@@ -78,8 +78,8 @@ function cartItemTemplate(product) {
       <h2 class="card__name">${product.Name}</h2>
     </a>
     <p class="cart-card__color">${product.Colors[0].ColorName}</p>
-    <p class="cart-card__quantity">qty: 1</p>
-    <p class="cart-card__price">$${product.FinalPrice}</p>
+    <p class="cart-card__quantity">qty: ${product.Quantity}</p>
+    <p class="cart-card__price">$${(Number(product.FinalPrice) * Number(product.Quantity)).toFixed(2)}</p>
     <button class="cart-remove__button" data-id="${product.Id}">Remove</button>
   </li>`;
 }
@@ -89,7 +89,7 @@ function cartItemTemplate(product) {
  */
 function cartTotalTemplate(totalPrice) {
     return `<li class="cart-card cart-price divider" id="cart-total">
-        <p class="cart-card__total_price">Total: $${totalPrice}<p>
+        <p class="cart-card__total_price">Total: $${totalPrice.toFixed(2)}<p>
     </li>`;
 }
 
