@@ -2,7 +2,7 @@ import { renderListWithTemplate } from "./utils.mjs";
 
 /**
  * @param {string} - Which category of product
- * @param {ProductData} dataSource - Handles fetching data
+ * @param {ExternalServices} dataSource - Handles fetching data
  * @param {Element} listElement - Target html element to render products in
  */
 export default class ProductList {

@@ -90,6 +90,9 @@ function cartItemTemplate(product) {
 function cartTotalTemplate(totalPrice) {
     return `<li class="cart-card cart-price divider" id="cart-total">
         <p class="cart-card__total_price">Total: $${totalPrice.toFixed(2)}<p>
+        <a href="/checkout/index.html">
+            <button>checkout</button>
+        </a>
     </li>`;
 }
 
