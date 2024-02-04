@@ -1,16 +1,16 @@
-import { getLocalStorage, getShoppingCartKey, removeItemFromLocalStorage, renderListWithTemplate, renderWithTemplate } from "./utils.mjs";
+import { getLocalStorage, getShoppingCartKey, removeItemFromLocalStorage, renderListWithTemplate, renderWithTemplate, setLocalStorage } from "./utils.mjs";
 
 export default class ShoppingCart {
     /**
      * @param {Element} parentElement - Element from html to insert cart templates into
      */
-    constructor(parentElement) {
-        this.cartKey = getShoppingCartKey(); // Sloppy but better than typing manually
+    constructor(parentElement = null) {
+        this.cartKey = getShoppingCartKey();
         this.parentElement = parentElement;
     }
 
     init() {
-        this.renderCart();
+
     }
 
     bindRemoveButtons() {
@@ -24,8 +24,16 @@ export default class ShoppingCart {
           });
     }
 
+    emptyCart() {
+        setLocalStorage(this.cartKey, []);
+    }
+
     getCart() {
         return getLocalStorage(this.cartKey);
+    }
+
+    getKey() {
+        return this.cartKey;
     }
 
     // Original Code by Kjirsten Dunn
@@ -40,6 +48,18 @@ export default class ShoppingCart {
             });
         }
         return sum;
+    }
+
+    // Returns the total number of items in the cart.
+    getNumberItemsInCart() {
+        let count = 0;
+        let cart = this.getCart();
+        if (cart != null) {
+            cart.forEach(element => {
+                count += Number(element.Quantity);
+            });
+        }
+        return count;
     }
 
     /**

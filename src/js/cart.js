@@ -3,7 +3,7 @@ import { loadHeaderFooter } from "./utils.mjs";
 
 const targetElement = document.getElementById("cart-list");
 const shoppingCart = new ShoppingCart(targetElement);
-shoppingCart.init();
+shoppingCart.renderCart();
 
 loadHeaderFooter(
   "header",
