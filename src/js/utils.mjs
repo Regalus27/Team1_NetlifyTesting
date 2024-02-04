@@ -4,7 +4,32 @@ export function qs(selector, parent = document) {
 }
 
 /**
- * @param {string} data - Information to be rendered using renderWithList, utils.mjs
+ * @param {string} message - Message to display in the alert
+ * @param {boolean} scroll - If true, scroll to the top of the page
+ */
+export function alertMessage (message, scroll = true) {
+  const targetElement = document.getElementsByTagName("main")[0];
+  renderWithTemplate(alertTemplate, targetElement, message, "afterbegin", false);
+  if (scroll) {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+}
+
+/**
+ * @param {string} message - message to be inserted into template using a render function
+ */
+function alertTemplate (message) {
+  return `<div class="alert-box">
+  <p>${message}
+  </div>`;
+}
+
+/**
+ * @param {string} data - Information to be rendered using renderWithList
  */
 function defaultTemplate(data) {
   return data;
@@ -27,6 +52,11 @@ export function getParam(params) {
 // We don't have user logins to hold a cart key, so I want an easily accessible cart key.
 export function getShoppingCartKey() {
   return "so-cart";
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert-box");
+  alerts.forEach((alert) => document.getElementsByTagName("main")[0].removeChild(alert));
 }
 
 /**

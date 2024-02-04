@@ -1,4 +1,4 @@
-import { getLocalStorage, getShoppingCartKey, setLocalStorage } from "./utils.mjs";
+import { alertMessage, getLocalStorage, getShoppingCartKey, removeAllAlerts, setLocalStorage } from "./utils.mjs";
 
 // Emiliano's Solution
 function productDetailsTemplate(product) {
@@ -60,6 +60,8 @@ export default class ProductDetails {
             list.push(this.product);
         }
         setLocalStorage(key, list);
+        removeAllAlerts();
+        alertMessage("Added to cart!", false);
     }
 
     // TODO: Refactor this to work with the generic renderer in utils.js

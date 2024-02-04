@@ -19,51 +19,52 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
         <form name="form-data" action="/submit_checkout" method="post">
-
           <!--CUSTOMER NAME-->
           <label for="firstName">First Name:</label>
-          <input type="text" id="fname" name="fname" required>
-          
+          <input type="text" id="fname" name="fname" required />
+
           <label for="lastName">Last Name:</label>
-          <input type="text" id="lname" name="lname" required>
-          
-    
+          <input type="text" id="lname" name="lname" required />
+
           <!-- ADDRESS-->
           <label for="streetAddress">Street Address:</label>
-          <input type="text" id="street" name="street" required>
-          
+          <input type="text" id="street" name="street" required />
+
           <label for="city">City:</label>
-          <input type="text" id="city" name="city" required>
-          
+          <input type="text" id="city" name="city" required />
+
           <label for="state">State:</label>
-          <input type="text" id="state" name="state" required>
-          
+          <input type="text" id="state" name="state" required />
+
           <label for="zipCode">Zip Code:</label>
-          <input type="text" id="zip" name="zip" required>
-          
-    
-    
+          <input type="text" id="zip" name="zip" required />
+
           <!--PAYMENTS-->
           <label for="creditCardNumber">Credit Card Number:</label>
-          <input type="text" id="cardNumber" name="creditCardNumber" required>
-          
+          <input type="text" id="cardNumber" name="cardNumber" required />
+
           <label for="expirationDate">Expiration Date:</label>
-          <input type="text" id="expiration" name="expirationDate" placeholder="MM/YYYY" required>
-          
+          <input
+            type="text"
+            id="expiration"
+            name="expiration"
+            placeholder="MM/YYYY"
+            required
+          />
+
           <label for="securityCode">Security Code:</label>
-          <input type="text" id="code" name="securityCode" required>
-          
-                
+          <input type="text" id="code" name="securityCode" required />
+
           <!--order summary-->
           <fieldset class="order-summary">
             <label for="">Subtotal: <span id="subtotal"></span></label>
             <label for="">Shipping: <span id="shipping"></span></label>
-            <label for="">Tax:      <span id="Tax"></span></label>
+            <label for="">Tax: <span id="Tax"></span></label>
             <label for="">Order Total:<span id="ordertotal"></span></label>
           </fieldset>
-    
+
           <!--CHECKOUT-->
-          <button type="submit">Checkout</button>
+          <button type="submit" id="checkoutSubmit">Checkout</button>
         </form>
       </section>
     </main>
