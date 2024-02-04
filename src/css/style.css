@@ -30,6 +30,10 @@ header {
   justify-content: space-between;
   padding: 0 10px;
 }
+.alert-box {
+  padding: 1px 1em;
+  background-color: var(--primary-color);
+}
 .logo {
   line-height: 60px;
   width: 245px;
@@ -243,7 +247,7 @@ fieldset {
 }
 
 button {
-  background-color: #4caf50;
+  background-color: var(--secondary-color);
   color: white;
   padding: 15px;
   border: none;

@@ -1,3 +1,5 @@
+import { alertMessage, removeAllAlerts, setLocalStorage } from "./utils.mjs";
+
 import ExternalServices from "./ExternalServices.mjs";
 
 // takes the items currently stored in the cart (localstorage) and returns them in a simplified form.
@@ -109,9 +111,10 @@ export default class CheckoutProcess {
       // Move to success page
       // Using replace so users cannot double order
       window.location.replace("/checkout/success.html");
-    }
-    catch (err) {
-      console.log(err);
+    } catch (err) {
+      removeAllAlerts();
+      alertMessage(err.message);
+
     }
   }
 }

@@ -1,10 +1,10 @@
 const baseURL = import.meta.env.VITE_SERVER_URL;
-function convertToJson(res) {
-  let response = res.json();
+async function convertToJson(res) {
+  let response = await res.json();
   if (res.ok) {
     return response;
   } else {
-    throw {name: "servicesError", message: response};
+    throw new Error(Object.values(response)[0]);
   }
 }
 
@@ -32,5 +32,12 @@ export default class ExternalServices {
       body: JSON.stringify(payload),
     };
     return await fetch(baseURL + "checkout/", options).then(convertToJson);
+  }
+}
+
+class ServicesError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "ServicesError";
   }
 }
